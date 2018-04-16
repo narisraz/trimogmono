@@ -1,14 +1,15 @@
-import { Component, AfterViewInit, Renderer, ElementRef } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Renderer } from '@angular/core';
+
+import { JhiEventManager } from 'ng-jhipster';
+import { LoginService } from './login.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
-import { JhiEventManager } from 'ng-jhipster';
-
-import { LoginService } from './login.service';
 import { StateStorageService } from '../auth/state-storage.service';
 
 @Component({
     selector: 'jhi-login-modal',
-    templateUrl: './login.component.html'
+    templateUrl: './login.component.html',
+    styleUrls: ['login.component.scss']
 })
 export class JhiLoginModalComponent implements AfterViewInit {
     authenticationError: boolean;
