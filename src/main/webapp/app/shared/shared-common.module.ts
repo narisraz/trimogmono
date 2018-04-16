@@ -1,18 +1,22 @@
-import { NgModule, LOCALE_ID } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { registerLocaleData } from '@angular/common';
-import locale from '@angular/common/locales/en';
-
 import {
-    TrimogmonoSharedLibsModule,
-    JhiLanguageHelper,
     FindLanguageFromKeyPipe,
     JhiAlertComponent,
-    JhiAlertErrorComponent
+    JhiAlertErrorComponent,
+    JhiLanguageHelper,
+    TrimogmonoSharedLibsModule
 } from './';
+import { LOCALE_ID, NgModule } from '@angular/core';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { Title } from '@angular/platform-browser';
+import locale from '@angular/common/locales/en';
+import { registerLocaleData } from '@angular/common';
 
 @NgModule({
     imports: [
+        BrowserAnimationsModule,
+        MatButtonModule,
         TrimogmonoSharedLibsModule
     ],
     declarations: [
@@ -29,6 +33,8 @@ import {
         },
     ],
     exports: [
+        BrowserAnimationsModule,
+        MatButtonModule,
         TrimogmonoSharedLibsModule,
         FindLanguageFromKeyPipe,
         JhiAlertComponent,
