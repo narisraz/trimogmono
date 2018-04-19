@@ -1,6 +1,6 @@
 {
     "social": {
-        "btnLabel": "Se connecter avec {{ label }}",
+        "btnLabel": "{{ label }}",
         "register": {
             "title": "Enregistrement via {{ label }}",
             "errorTitle": "Enregistrement via un compte externe",

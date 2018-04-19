@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SocialService } from './social.service';
+
 import { CSRFService } from '../auth/csrf.service';
+import { SocialService } from './social.service';
 
 @Component({
     selector: 'jhi-social',
@@ -8,6 +9,7 @@ import { CSRFService } from '../auth/csrf.service';
 })
 export class JhiSocialComponent implements OnInit {
     @Input() provider: string;
+    icon: string;
     label: string;
     providerSetting: string;
     providerURL: string;
@@ -23,5 +25,6 @@ export class JhiSocialComponent implements OnInit {
         this.providerSetting = this.socialService.getProviderSetting(this.provider);
         this.providerURL = this.socialService.getProviderURL(this.provider);
         this.csrf = this.csrfService.getCSRF();
+        this.icon = this.socialService.getIconSetting(this.provider);
     }
 }

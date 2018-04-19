@@ -1,27 +1,46 @@
 <mat-card class="example-card">
-  <div class="login-img">
-    <img mat-card-image src="https://www.cas-moleson.ch/fileadmin/user_upload/files/news_actualit%C3%A9s/register-login-add-on.png" alt="Photo of a Shiba Inu">
-  </div>
-  
+
+	<mat-card-header fxFlexFill>
+    <div fxLayout="row" fxLayoutAlign="center center">Login</div> 
+  </mat-card-header>
+
   <mat-card-content>
-    <form class="example-form" role="form" (ngSubmit)="login()">
-			<mat-form-field class="example-full-width" fxFlexFill>
+		<div color="danger" *ngIf="authenticationError" jhiTranslate="login.messages.error.authentication">
+			<strong>Failed to sign in!</strong> Please check your credentials and try again.
+		</div>
+    <form role="form" (ngSubmit)="login()">
+			<mat-form-field fxFlexFill>
 				<input matInput class="form-control" name="username" id="username" placeholder="{{'global.form.username.placeholder' | translate}}"
                     [(ngModel)]="username">
 			</mat-form-field>
 
-			<mat-form-field class="example-full-width" fxFlexFill>
+			<mat-form-field fxFlexFill>
 				<input matInput type="password" class="form-control" name="password" id="password" placeholder="{{'login.form.password.placeholder' | translate}}"
                            [(ngModel)]="password">
 			</mat-form-field>
     </form>
 	  <mat-checkbox [(ngModel)]="rememberMe"><span jhiTranslate="login.form.rememberme">Remember me</span></mat-checkbox>
-    <button mat-button fxFlexFill>
+    <button mat-button fxFlexFill color="danger">
 			<span jhiTranslate="login.form.button">Sign in</span>
 		</button>
-  </mat-card-content>
-  <mat-card-actions>
-  </mat-card-actions>
+
+		<div>
+			<a (click)="requestResetPassword()" jhiTranslate="login.password.forgot">Did you forget your password?</a>
+		</div>
+		<div>
+			<span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>
+			<a (click)="register()" jhiTranslate="global.messages.info.register.link">Register a new account</a>
+		</div>
+	</mat-card-content>
+
+	<div fxLayout="row" fxLayoutAlign="center center">Sign with</div>
+	
+  <mat-card-actions fxLayout="row" fxLayoutAlign="center center">
+		<jhi-social provider="google"></jhi-social>
+		<jhi-social provider="facebook"></jhi-social>
+		<jhi-social provider="twitter"></jhi-social>
+	</mat-card-actions>
+	
 </mat-card>
 
 <div class="modal-header">

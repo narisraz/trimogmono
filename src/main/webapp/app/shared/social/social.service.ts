@@ -13,6 +13,16 @@ export class SocialService {
             // jhipster-needle-add-social-button
             default: return 'Provider setting not defined';
         }
+  }
+
+  getIconSetting(provider) {
+        switch (provider) {
+            case 'google': return 'fa-google';
+            case 'facebook': return 'fa-facebook-f';
+            case 'twitter': return 'fa-twitter';
+            // jhipster-needle-add-social-button
+            default: return 'Provider setting not defined';
+        }
     }
 
     getProviderURL(provider) {
